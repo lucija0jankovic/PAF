@@ -1,18 +1,23 @@
-x1 = float(input('unesi x1: '))
-y1 = float(input('unesi y1: '))
-x2 = float(input('unesi x2: '))
-y2 = float(input('unesi y2: '))
+koordinate = []
+
+for i in ['x1', 'y1', 'x2', 'y2']:
+    unos = input(f'unesi {i} ')
+    while not unos.replace('.', '', 1).isdigit():
+        print('ponovo unesi')
+        unos = input(f'unesi {i} ')
+    koordinate.append(float(unos))
+
+x1, y1, x2, y2 = koordinate
 
 def pravac(x1, y1, x2, y2):
     if x1 == x2:
-        print('x1 i x2 ne smiju bit isti')
-        return
-    k = (y2 - y1) / (x2 - x1)
-    l = y1 - k * x1
-    print("y =", k, "* x +", l)
+        print(f'jednadzba pravca je x={x1}')
+    else:
+        k = (y2 - y1) / (x2 - x1)
+        l = y1 - k * x1
+        print(f'jednadžba pravca y = {k}x + {l}')
 
 pravac(x1, y1, x2, y2)
-
 
 
 #rjesen kao nastavak na treci
@@ -38,8 +43,11 @@ while x1 == x2:
 
 
 def pravac(x1, y1, x2, y2):
-    k = (y2 - y1) / (x2 - x1)
-    l = y1 - k * x1
-    print('jednadžba pravca je y =', k, '* x +', l)
+    if x1 == x2:
+        print(f'jednadzba pravca je x={x1}')
+    else:
+        k = (y2 - y1) / (x2 - x1)
+        l = y1 - k * x1
+        print(f'jednadžba pravca y = {k}x + {l}')
 
 pravac(x1, y1, x2, y2)
