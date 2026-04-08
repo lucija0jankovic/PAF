@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import math
-from calculus import derivacija, derivacija_raspon
+from calculus import derivacija, derivacija_interval
 
 def kubna(x):
     return x**3 - 2*x**2 + x
@@ -22,7 +22,7 @@ plt.plot(x_analiticki, y_analiticki, color='black')
 
 for m in metode:
     for e in epsilon:
-        xs, ys = derivacija_raspon(f, pocetak, kraj, n=100, epsilon=e, metoda=m)
+        xs, ys = derivacija_interval(f, pocetak, kraj, n=50, epsilon=e, metoda=m)
         plt.plot(xs, ys, '--o', markersize=2)
 
 plt.xlabel('x')

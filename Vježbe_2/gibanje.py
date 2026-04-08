@@ -4,7 +4,6 @@ import math
 p1=Particle(100, 50, 0, 0)
 domet_numericki=p1.range()
 g=9.81
-theta=p1.kut*math.pi/180
 domet_analiticki=(p1.v0**2*math.sin(2*p1.kut))/g
 odstupanje = abs(domet_numericki - domet_analiticki)
 

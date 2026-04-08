@@ -14,7 +14,7 @@ p2=Particle(10,60,0,0)
 domet_numericki=[]
 greske=[]
 dt_lista = []
-dt_lista=np.linspace(0.00001,1,10000) 
+dt_lista=np.linspace(0.001,0.1,100) 
 
 
 for i in dt_lista:

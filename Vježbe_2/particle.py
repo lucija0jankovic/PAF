@@ -9,34 +9,41 @@ class Particle:
         self.y0=y0
 
     def reset(self):
-        self.x=[self.x0]
-        self.y=[self.y0]
-        self.vx=self.v0*math.cos(self.kut)
-        self.vy=self.v0*math.sin(self.kut)
-        self.t=[0.0]
+        self.x=self.x0
+        self.y=self.y0
+
+        self.vx=self.v0 * math.cos(self.kut)
+        self.vy=self.v0 * math.sin(self.kut)
+        self.t=0
+
+        self.x_lista=[self.x]
+        self.y_lista=[self.y]
         
     def __move(self,dt):
-        self.g=9.81
-        x=self.x[-1]+self.vx*dt
-        vy=self.vy-self.g*dt
-        y=self.y[-1]+self.vy*dt
+        g=9.81
 
-        self.x.append(x)
-        self.y.append(y)
-        self.vy=vy
-        self.t.append(self.t[-1]+dt)
+        self.x+=self.vx * dt
+        self.y+=self.vy * dt
+
+        self.vy-=g * dt 
+        self.t+=dt
+
+        self.x_lista.append(self.x)
+        self.y_lista.append(self.y)
     
     def range(self,dt=0.01):
         self.reset()
-
-        while self.y[-1]>=0:
+        while self.y >= 0:
+            self.__move(dt)
+        return self.x
+    
+    
+    def plot_trajectory(self,dt=0.01):
+        self.reset()
+        while self.y >= 0:
             self.__move(dt)
 
-        domet=self.x[-1]-self.x0
-        return domet
-    
-    def plot_trajectory(self):
-        plt.plot(self.x,self.y)
+        plt.plot(self.x_lista,self.y_lista)
         plt.xlabel('x')
         plt.ylabel('y')
         plt.show()
