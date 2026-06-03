@@ -1,4 +1,6 @@
 import math
+import numpy as np
+
 tocke = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 n = len(tocke)
 
@@ -22,10 +24,9 @@ print(f"standardna devijacija (a): {standardna_devijacija_a:.4f}\n")
 
 #b)
 
-aritmeticka_sredina_b = sum(tocke) / n
+aritmeticka_sredina_b = np.mean(tocke)
 
-standardna_devijacija_b = math.sqrt(
-    sum((x - aritmeticka_sredina_b) ** 2 for x in tocke) / (n * (n - 1)))
+standardna_devijacija_b = np.std(tocke, ddof=1) / np.sqrt(n)
 
 print(f"aritmetička sredina (b): {aritmeticka_sredina_b:.4f}")
 print(f"standardna devijacija (b): {standardna_devijacija_b:.4f}")
