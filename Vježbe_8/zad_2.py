@@ -12,8 +12,8 @@ T_240 = np.array([1.0140 , 1.0320 , 1.0433 , 1.0673 , 1.0840 , 1.1320 , 1.1440 ,
                   1.1980 , 1.2293 , 1.2813 , 1.3573 , 1.4200 , 1.5600 , 1.7413 , 1.9840 , 2.4473 , 3.1573])
 
 g = 9.81
-L_nominalno_120 = 0.120
-L_nominalno_240 = 0.240
+L_mm_120 = 0.120
+L_mm_240 = 0.240
 
 def model_perioda(kut, l):
     return 2 * np.pi * np.sqrt(l / (g * np.cos(kut)))
@@ -24,8 +24,8 @@ l_120 = parametri_120[0]
 parametri_240, _ = curve_fit(model_perioda, kut_rad, T_240, p0=[0.240])
 l_240 = parametri_240[0]
 
-rel_pogreska_120 = abs(l_120 - L_nominalno_120) / L_nominalno_120 * 100
-rel_pogreska_240 = abs(l_240 - L_nominalno_240) / L_nominalno_240 * 100
+rel_pogreska_120 = abs(l_120 - L_mm_120) / L_mm_120 * 100
+rel_pogreska_240 = abs(l_240 - L_mm_240) / L_mm_240 * 100
 
 print(f"Za L = 120 mm: izračunato l = {l_120*1000:.2f} mm, relativna pogreška = {rel_pogreska_120:.2f} %")
 print(f"Za L = 240 mm: izračunato l = {l_240*1000:.2f} mm, relativna pogreška = {rel_pogreska_240:.2f} %")
@@ -35,12 +35,14 @@ kut_gusti_deg = np.degrees(kut_gusti_rad)
 
 plt.figure(figsize=(8, 6))
 plt.plot(kut_deg, T_120, 'ro', label='mjerenja (120 mm)')
-plt.plot(kut_gusti_deg, model_perioda(kut_gusti_rad, l_120), 'r-', label='Teorija (120 mm)')
+plt.plot(kut_gusti_deg, model_perioda(kut_gusti_rad, l_120), 'r-', label='teorija (120 mm)')
 
 plt.plot(kut_deg, T_240, 'bo', label='mjerenja (240 mm)')
-plt.plot(kut_gusti_deg, model_perioda(kut_gusti_rad, l_240), 'b-', label='Teorija (240 mm)')
+plt.plot(kut_gusti_deg, model_perioda(kut_gusti_rad, l_240), 'b-', label='teorija (240 mm)')
 
 plt.xlabel('kut')
 plt.ylabel('period')
 plt.legend()
 plt.show()
+
+#koristen ai

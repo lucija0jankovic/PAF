@@ -48,7 +48,6 @@ pogreska_a_ef_b = 2 * pogreska_nagiba_b
 Iz_b = mr2 * (g / a_ef_b - 1)
 pogreska_Iz_b = mr2 * (g / (a_ef_b**2)) * pogreska_a_ef_b
 
-# Novi, čišći ispis
 print("a")
 print(f"Nagib:    {nagib_a:.4f} ± {pogreska_nagiba_a:.4f}")
 print(f"Odsječak: {odsjecak_a:.4f} ± {pogreska_odsjecka_a:.4f}\n")
@@ -76,3 +75,5 @@ plt.ylabel('s (m)')
 
 plt.tight_layout()
 plt.show()
+
+#koristen ai
