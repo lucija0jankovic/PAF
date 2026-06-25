@@ -59,7 +59,7 @@ prizma_y = [0.0, 0.0, H, 0.0]
 plt.fill(prizma_x, prizma_y, color='#f2f8fc')
 plt.plot(prizma_x, prizma_y, color='black', linewidth=1.5)
 
-upadni_kut = 52.0
+upadni_kut = 50.0
 kut_prizme = 60.0
 baza_stakla = 1.5046      
 jacina_disperzije = 0.05

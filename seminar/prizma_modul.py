@@ -59,9 +59,12 @@ def putanja_zrake(kut_upada, kut_prizme, valna_duljina, A_cauchy, B_cauchy):
     smjer_unutra = np.array([np.cos(kut_unutra), -np.sin(kut_unutra)])
     k_lom = smjer_unutra[1] / smjer_unutra[0]
     l_lom = P_ulaza[1] - k_lom * P_ulaza[0]
+  
+    H = L * np.sqrt(3) / 2.0     
+    k2 = (0.0 - H) / (L - L/2.0)  
+    l2 = 0.0 - k2 * L           
     kut_baze = np.radians((180.0 - kut_prizme) / 2.0)
-    k2 = -np.tan(kut_baze)
-    l2 = L * np.tan(kut_baze)
+
     Tx_2 = (l2 - l_lom) / (k_lom - k2)
     Ty_2 = k_lom * Tx_2 + l_lom
     P_izlaza = np.array([Tx_2, Ty_2])
